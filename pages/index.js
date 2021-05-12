@@ -4,7 +4,8 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
   UserOutlined,
-  VideoCameraOutlined,
+  HomeOutlined,
+  DownloadOutlined,
   UploadOutlined,
 } from '@ant-design/icons';
 
@@ -25,6 +26,7 @@ const content = {
 class About extends React.Component {
   state = {
     collapsed: false,
+    selectedmenu: "Home"
   };
 
   toggle = () => {
@@ -32,19 +34,25 @@ class About extends React.Component {
       collapsed: !this.state.collapsed,
     });
   };
+
+  seltos = (key ) => {
+    this.setState({
+      selectedmenu:  key
+    });
+  };
   render() {
     return(<Layout>
       <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
         <div className="logo" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']}>
-          <Menu.Item key="1" icon={<UserOutlined />}>
-            nav 1
+        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onSelect={this.seltos}>
+          <Menu.Item key="1" icon={<HomeOutlined />}>
+            Home
           </Menu.Item>
-          <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-            nav 2
+          <Menu.Item key="2" icon={<DownloadOutlined />}>
+            GetDown
           </Menu.Item>
-          <Menu.Item key="3" icon={<UploadOutlined />}>
-            nav 3
+          <Menu.Item key="3" icon={<UserOutlined />}>
+            Setting
           </Menu.Item>
         </Menu>
       </Sider>
