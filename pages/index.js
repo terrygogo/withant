@@ -8,13 +8,15 @@ import {
   DownloadOutlined,
   UploadOutlined,
 } from '@ant-design/icons';
-
+import Link from 'next/link'
 import React from 'react'
 const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
-
-
+import Image from 'next/image'
+import   Getdown  from './getdown.js'
+import   Home  from './home.js'
+import   Setting  from './setting.js'
 
 const FormItem = Form.Item
 const Option = Select.Option
@@ -26,7 +28,7 @@ const content = {
 class About extends React.Component {
   state = {
     collapsed: false,
-    selectedmenu: "Home"
+    selectedmenu: "home"
   };
 
   toggle = () => {
@@ -35,23 +37,40 @@ class About extends React.Component {
     });
   };
 
-  seltos = (key ) => {
+  seltos = (e ) => {
     this.setState({
-      selectedmenu:  key
+      selectedmenu:  e.key
     });
   };
+  getGreeting() {
+    let user = this.state.selectedmenu;
+    if (user == "home" ) {
+      return <Home />;
+    }
+    if (user == "getdown" ) {
+      return <Getdown />;
+    }
+    return <Setting></Setting>;
+  }
+
   render() {
     return(<Layout>
-      <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-        <div className="logo" />
-        <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} onSelect={this.seltos}>
-          <Menu.Item key="1" icon={<HomeOutlined />}>
+  
+      <Sider trigger={null} collapsible collapsed={this.state.collapsed} theme="light" >
+        <div className="logo"> <Image
+        src="/me.png"
+        alt="Picture of the author"
+        width={299}
+        height={102}
+      /> </div>
+        <Menu   mode="inline" defaultSelectedKeys={['home']} onSelect={this.seltos}>
+          <Menu.Item key="home" icon={<HomeOutlined />}>
             Home
           </Menu.Item>
-          <Menu.Item key="2" icon={<DownloadOutlined />}>
+          <Menu.Item key="getdown" icon={<DownloadOutlined />}>
             GetDown
           </Menu.Item>
-          <Menu.Item key="3" icon={<UserOutlined />}>
+          <Menu.Item key="setting" icon={<UserOutlined />}>
             Setting
           </Menu.Item>
         </Menu>
@@ -66,9 +85,8 @@ class About extends React.Component {
             onClick: this.toggle,
           })} </Col>
       <Col flex="auto"> <Breadcrumb style={{ margin: '16px 0' }}>
-        <Breadcrumb.Item>Home</Breadcrumb.Item>
-        <Breadcrumb.Item>List</Breadcrumb.Item>
-        <Breadcrumb.Item>App</Breadcrumb.Item>
+        <Breadcrumb.Item> {this.state.selectedmenu} </Breadcrumb.Item>
+     
       </Breadcrumb></Col>
       </Row>
      
@@ -82,7 +100,7 @@ class About extends React.Component {
             minHeight: 280,
           }}
         >
-          Content
+        {this.getGreeting()}
         </Content>
       </Layout>
     </Layout>)
