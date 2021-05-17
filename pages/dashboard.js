@@ -2,7 +2,7 @@ import { Image } from 'next/image';
 import React from 'react'
 import { Timeline } from 'antd';
 
-class Getdown extends React.Component {
+class Dashboard extends React.Component {
     render() {
   return (  <Timeline>
     <Timeline.Item>Create a services site 2015-09-01</Timeline.Item>
@@ -12,4 +12,4 @@ class Getdown extends React.Component {
   </Timeline>)
 }
 }
-export default Getdown;
+export default Dashboard;

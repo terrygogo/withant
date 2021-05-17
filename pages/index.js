@@ -3,9 +3,10 @@ import { Layout, Menu, Breadcrumb } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
+  DashboardOutlined,
   UserOutlined,
   HomeOutlined,
-  DownloadOutlined,
+  ControlOutlined,
   UploadOutlined,
 } from '@ant-design/icons';
 import Link from 'next/link'
@@ -14,9 +15,10 @@ const { Header, Sider, Content } = Layout;
 const { SubMenu } = Menu;
 
 import Image from 'next/image'
-import   Getdown  from './getdown.js'
-import   Home  from './home.js'
+import   User  from './user.js'
+import   Home  from '../components/home.js'
 import   Setting  from './setting.js'
+import   Dashboard  from './dashboard.js'
 
 const FormItem = Form.Item
 const Option = Select.Option
@@ -47,10 +49,13 @@ class About extends React.Component {
     if (user == "home" ) {
       return <Home />;
     }
-    if (user == "getdown" ) {
-      return <Getdown />;
+    if (user == "dashboard" ) {
+      return <Dashboard />;
     }
-    return <Setting></Setting>;
+    if (user == "setting" ) {
+      return <Setting />;
+    }
+    return <User />;
   }
 
   render() {
@@ -67,11 +72,14 @@ class About extends React.Component {
           <Menu.Item key="home" icon={<HomeOutlined />}>
             Home
           </Menu.Item>
-          <Menu.Item key="getdown" icon={<DownloadOutlined />}>
-            GetDown
+          <Menu.Item key="dashboard" icon={<DashboardOutlined />}>
+            dashboard
           </Menu.Item>
-          <Menu.Item key="setting" icon={<UserOutlined />}>
-            Setting
+          <Menu.Item key="setting" icon={<ControlOutlined />}>
+            setting
+          </Menu.Item>
+          <Menu.Item key="user" icon={<UserOutlined />}>
+            user
           </Menu.Item>
         </Menu>
       </Sider>
