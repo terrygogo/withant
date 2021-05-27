@@ -20,3 +20,19 @@
   .site-layout .site-layout-background {
     background: rgb(250, 248, 248);
   }
+
+  
+.react-grid-item.react-grid-placeholder {
+  background-color: black;
+}
+
+.react-grid-item > .react-resizable-handle::after {
+  content: "";
+  position: absolute;
+  right: 3px;
+  bottom: 3px;
+  width: 5px;
+  height: 5px;
+  border-right: 8px solid rgba(211, 27, 27, 0.4);
+  border-bottom: 8px solid rgba(216, 26, 26, 0.4);  
+}
