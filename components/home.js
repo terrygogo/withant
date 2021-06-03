@@ -21,7 +21,7 @@ export default class ErrorCaseLayout extends React.PureComponent {
   generateDOM() {
     return [
       <div key={"1"}>
-        <span className="react-grid-item">{"1"}</span>
+        <span className="text">{"1"}</span>
       </div>,
       <div key={"2"}>
         <span className="text">{"2"}</span>

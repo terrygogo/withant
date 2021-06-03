@@ -46,6 +46,7 @@ class About extends React.Component {
   };
   getGreeting() {
     let user = this.state.selectedmenu;
+ 
     if (user == "home" ) {
       return <Home />;
     }
