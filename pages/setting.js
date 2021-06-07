@@ -5,8 +5,8 @@ import useSWR from 'swr'
 const fetcher = url => fetch(url).then(res => res.json());
 
 function Setting () {
-  const { data, error } = useSWR('api/post/abc', fetcher)
- debugger
+  const { data, error } = useSWR('api/post/abc?name=kimchi', fetcher)
+ 
   if (error) return <div>failed to load</div>
   if (!data) return <div>loading...</div>
 

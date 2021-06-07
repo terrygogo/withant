@@ -10,16 +10,14 @@
       ],
       "type": "pwa-node"
     },
+       {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Next: Chrome",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}"
+        }
     
     
-    {
-      "type": "node",
-      "request": "attach",
-      "name": "Launch Program",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "port": 2045
-    }
   ]
 }
