@@ -16,7 +16,7 @@ const { SubMenu } = Menu;
 
 import Image from 'next/image'
 import   User  from './user.js'
-import   Home  from '../components/home.js'
+import   Task  from './task.js'
 import   Setting  from './setting.js'
 import   Dashboard  from './dashboard.js'
 
@@ -30,7 +30,7 @@ const content = {
 class About extends React.Component {
   state = {
     collapsed: false,
-    selectedmenu: "home"
+    selectedmenu: "dashboard"
   };
 
   toggle = () => {
@@ -47,8 +47,8 @@ class About extends React.Component {
   getGreeting() {
     let user = this.state.selectedmenu;
  
-    if (user == "home" ) {
-      return <Home />;
+    if (user == "task" ) {
+      return <Task />;
     }
     if (user == "dashboard" ) {
       return <Dashboard />;
@@ -69,12 +69,13 @@ class About extends React.Component {
         width={299}
         height={102}
       /> </div>
-        <Menu   mode="inline" defaultSelectedKeys={['home']} onSelect={this.seltos}>
-          <Menu.Item key="home" icon={<HomeOutlined />}>
-            Home
-          </Menu.Item>
+        <Menu   mode="inline" defaultSelectedKeys={['dashboard']} onSelect={this.seltos}>
+     
           <Menu.Item key="dashboard" icon={<DashboardOutlined />}>
             dashboard
+          </Menu.Item>
+               <Menu.Item key="task" icon={<HomeOutlined />}>
+            task
           </Menu.Item>
           <Menu.Item key="setting" icon={<ControlOutlined />}>
             setting
